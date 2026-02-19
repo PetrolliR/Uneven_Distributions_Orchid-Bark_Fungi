@@ -1,11 +1,11 @@
 ##########################################################################
 #                                                                        #
 #                                                                        #
-#        Uneven distribution of bark fungal communities can mediate      #
-#               host preference of a mycorrhiza-dependent                #
-#                epiphytic orchid in tropical rainforests                #
+#          The distribution of mycorrhizal fungi on tree barks           #
+#          correlates with the host preference of the tropical           #
+#         epiphytic orchid Bulbophyllum variegatum on La Réunion         #
 #                                                                        #
-#                            Petrolli et al.                             #
+#                        Petrolli et al. 2026                            #
 #                                                                        #
 #                                                                        #
 ##########################################################################
@@ -18,7 +18,7 @@
 # Script from Remi Petrolli (remi.petrolli@laposte.net)
 # Date : 29/04/2024
 #
-# Note : each section can be run separately once the tables have been loaded
+# Note : each section can be run separately once the tables are loaded
 ## ##  ## ## 
 
 rm(list = ls())
@@ -205,7 +205,7 @@ TableD <- read.table("Path_to/23_09_08_Table_D_OTU97_Full_Filtered_AbsAbundances
                     header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 
 #### 2. Beta diversity analyses - NMDS ##################################### 
-#### 2.1. NMDS - Fig. S4-B  - Jaccard - Bark ################################
+#### 2.1. NMDS - Fig. S6-B  - Jaccard - Bark ################################
 
 Table <- TableB
 rownames(Table) <- Table$OTU_ID
@@ -290,7 +290,7 @@ CompareTwoLists("listA", "listB")
 pperm_res <- pairwise_permanova(sp_matrix = Table, group_var = NMDS_PlotTab$Host2, dist = "jaccard")
 pperm_res
 
-#### 2.2. NMDS - Fig. S4-C  - Bray - Bark ###################################
+#### 2.2. NMDS - Fig. S6-C  - Bray - Bark ###################################
 
 Table <- TableA
 
@@ -467,7 +467,7 @@ anova(mod)
 # Groups      2 0.23744 0.118721  91.806 < 2.2e-16 ***
 #   Residuals 744 0.96213 0.001293
 
-#### 2.4. NMDS - Fig. S4-A  - Bray - Total ###################################
+#### 2.4. NMDS - Fig. S6-A  - Bray - Total ###################################
 
 Table <- TableA
 
@@ -564,7 +564,7 @@ anova(mod)
 #   Residuals 744 1.47339 0.001980
 0.17179/(0.17179+1.47339)
 
-#### 2.5. NMDS - Fig. S4-D  - Jaccard - Roots ###############################
+#### 2.5. NMDS - Fig. S6-D  - Jaccard - Roots ###############################
 
 Table <- TableB
 Table <- Table[,c(9:ncol(Table))]
@@ -643,7 +643,7 @@ amod$`Sum Sq`[1]/(amod$`Sum Sq`[1]+amod$`Sum Sq`[2])
 #   Residuals 353 1.79239 0.005078
 
 
-#### 2.6. NMDS - Fig. S4-E  - Bray - Roots #############################################
+#### 2.6. NMDS - Fig. S6-E  - Bray - Roots #############################################
 
 Table <- TableA
 Table <- Table[,c(9:ncol(Table))]
@@ -1171,7 +1171,7 @@ ggplot(dff, aes(x = Size, y = Abd, group = OTU, col = OTU, fill = OTU)) + theme_
 #ggsave(paste(SortiePath, date, "OTUs-EvolWithLeaf.pdf",  sep=""), width = 8, height = 8, plot = last_plot())
 
 
-#### 4.4. Fig. S9  ##################################
+#### 4.4. Fig. S13  ##################################
 
 NonAgaSalRoots <- c(paste0("RBV26_", 1:5), paste0("RBV27_", 1:3),
                     paste0("RBV106_", 1:3), paste0("RBV107_", 1:3),
@@ -1239,7 +1239,7 @@ ggplot(data=mTable, aes(x=variable, y=value, fill=as.factor(taxonomy))) +
 
 
 #### 5. Spatial analyses ###################################################
-#### 5.1. Fig. S6-A - Mantel test - ##########################################
+#### 5.1. Fig. S10-A - Mantel test - ##########################################
 
 SpatialDist <- readRDS("Path_to/24_05_06_SampleCoordinates-Mantel.rds")
 Table <- TableA
@@ -1290,7 +1290,7 @@ ggplot(data = Mantel.Res, aes(x = class.index, y = Mantel.cor), color = "#218380
         legend.position = "none")
 #ggsave(paste(SortiePath, date, "_Correl_TableA.pdf",  sep=""), plot = last_plot())
 
-#### 5.2. Fig. S6-B VarPart analysis ###############################################
+#### 5.2. Fig. S10-B VarPart analysis ###############################################
 
 SpatialDist <- readRDS("Path_to/24_05_06_SampleCoordinates-Mantel.rds")
 Table <- TableA
@@ -1410,7 +1410,7 @@ anova(rda.species.pcnm)
 
 #### 6. Rarefaction curves ################################################
 
-Table <- TableB # (or TableC for Fig. S2-C)
+Table <- TableB # (or TableC for Fig. S4-C)
 
 # Need to change some samples' name
 colnames(Table)[which(colnames(Table)=="RBV53bp1")] <- "RBV53b(P)_1"
