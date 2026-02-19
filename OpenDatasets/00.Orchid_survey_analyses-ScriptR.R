@@ -1,11 +1,11 @@
 ##########################################################################
 #                                                                        #
 #                                                                        #
-#        Uneven distribution of bark fungal communities can mediate      #
-#               host preference of a mycorrhiza-dependent                #
-#                epiphytic orchid in tropical rainforests                #
+#          The distribution of mycorrhizal fungi on tree barks           #
+#          correlates with the host preference of the tropical           #
+#         epiphytic orchid Bulbophyllum variegatum on La Réunion         #
 #                                                                        #
-#                            Petrolli et al.                             #
+#                        Petrolli et al. 2026                            #
 #                                                                        #
 #                                                                        #
 ##########################################################################
@@ -18,7 +18,7 @@
 # Script from Remi Petrolli (remi.petrolli@laposte.net)
 # Date : 29/04/2024
 #
-# Note : each section can be run separately once the tables have been loaded
+# Note : each section can be run separately once the tables are loaded
 ## ##  ## ## 
 
 rm(list = ls())
